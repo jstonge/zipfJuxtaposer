@@ -1,0 +1,162 @@
+/* Dont let the page get awkwardly wide on big screens*/
+body > div {
+  max-width: 1700px;
+}
+
+/* Very top of page spans entire width and has theme changer on the left and
+   a source link on the right */
+#page-top {
+  height: auto;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0;
+  padding-top: 6PX;
+  position: relative;
+}
+
+#page-top > * {
+  position: absolute;
+}
+
+.source_link {
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+
+/* Theme chooser sits in upper left of page */
+#current_theme {
+  padding: 0 0.5rem;
+}
+
+#current_theme .shiny-options-group {
+  /* Makes input sit next to the label */
+  display: inline;
+}
+
+/* Source link sits in upper right of page */
+#page-top > .source_link {
+  right: 0;
+  padding: 0 0.5rem;
+}
+/* Hide source link on mobile to avoid overlapping theme picker */
+@media all and (max-width: 768px) {
+  #page-top > .source_link { display: none;}
+}
+
+
+/* Make title nice and centered */
+#app-title > h2 { text-align: center; }
+
+/* Top of page is a small grid of controls and info*/
+#header {
+  margin: 1rem auto;
+  width: 768px;
+  display: -ms-flexbox;
+  display: flex; /* helps vertically align stuff */
+}
+
+#header > div {
+  display: inline-block;
+}
+
+/* Padding around city selector input to space out inputs evenly */
+#sys-selector1 {
+  margin: 0 34px; /* 300 + 34 + 400 + 34 + 300 = 768 */
+}
+
+/* Padding around city selector input to space out inputs evenly */
+#sys-selector2 {
+  margin: 0 34px; /* 300 + 34 + 400 + 34 + 300 = 768 */
+}
+
+
+/* Makes the label for header inputs sit centered on top */
+#header > * > span {
+  display: block;
+  text-align: center;
+}
+
+@media all and (max-width: 768px) {
+   /* For small screens, stack buttons and search into single column */
+  #header {
+    width: 100%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  #header > div {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  #header > * > button,
+  .form-group.shiny-input-container {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Hide source link at top of page to avoid overlapping theme picker */
+  #page-top > .source_link { display: none;}
+}
+
+#contributing_stations {
+  padding-bottom: 1rem;
+}
+
+/* The section header */
+#contributing_stations span:nth-child(1){
+  font-size: 1.2em;
+}
+
+/* Supplementary text is italic and smaller*/
+#contributing_stations span:nth-child(2){
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Main section is flex layout so city with lots of stations wrap nicely*/
+#station_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.station_bubble {
+  border-radius: 9px;
+  padding: 5px;
+  margin: 5px;
+  border: $border-width solid $border-color;
+  background: $secondary;
+}
+
+/* Make station bubble cards respect the colors of the theme */
+.station_bubble > a {@extend .bg-secondary;}
+
+
+/* Buttons are set at a fixed width and if content is too big it gets elipsed*/
+button { width: 45px; }
+button > div {
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+
+/* Text inputs bottom margin prevents it from lining up nicely, so remove */
+.form-group.shiny-input-container,
+.selectize-control {
+  margin-bottom: 0;
+}
+
+
+/* Make some wordy sections smaller */
+.small_text {
+  font-size: small;
+}
