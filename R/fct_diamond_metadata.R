@@ -7,10 +7,9 @@
 #' @noRd
 #' 
 #' @importFrom data.table data.table fifelse
-#' @importFrom foreach %dopar% foreach
+#' @importFrom foreach %do% foreach
 metadata_diamond <- function(mixedelements) {
   # Setup
-  options(cores=parallel::detectCores()-1)
   axis_coords <- get_diag(mixedelements)
   CELL_LENGTH <-  1/15
   
@@ -33,16 +32,15 @@ metadata_diamond <- function(mixedelements) {
   
   # 4.
   unique_tuples <- unique(all_tuples)
-  doParallel::registerDoParallel()
   i <- NULL # make it a visible binding
-  coord_perp <- foreach(i=1:nrow(unique_tuples), .combine = rbind) %dopar% {
+  coord_perp <- foreach(i=1:nrow(unique_tuples), .combine = rbind) %do% {
     get_perp_coord(unique_tuples[i,], axis_coords)
   }
-  
-  doParallel::registerDoParallel()
-  dist <- foreach(i=1:nrow(unique_tuples), .combine=rbind) %dopar% {
+
+  dist <- foreach(i=1:nrow(unique_tuples), .combine=rbind) %do% {
     eucl_dist(unique_tuples[i,], axis_coords[coord_perp[i],])
   }
+  
   
   all_dists_from_axis <- merge(x = all_tuples, 
                                y = data.table(unique_tuples, dist=dist[,1], ax=coord_perp[,1]), 

@@ -76,6 +76,7 @@ body > div {
   text-align: center;
 }
 
+
 @media all and (max-width: 768px) {
    /* For small screens, stack buttons and search into single column */
   #header {
@@ -138,8 +139,8 @@ body > div {
 .station_bubble > a {@extend .bg-secondary;}
 
 
+/*button { width: 100px; }*/
 /* Buttons are set at a fixed width and if content is too big it gets elipsed*/
-button { width: 45px; }
 button > div {
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
@@ -159,4 +160,10 @@ button > div {
 /* Make some wordy sections smaller */
 .small_text {
   font-size: small;
+}
+
+/* Make title nice and centered */
+.bottom_sweep { 
+  text-align: center; 
+  
 }

@@ -8,13 +8,13 @@
 
 
 golem::fill_desc(
-  pkg_name = "zipfJuxtaposer", # The Name of the package containing the App 
-  pkg_title = "zipfJuxtaposer", # The Title of the package containing the App 
-  pkg_description = "Package to compare two zipfian ranked lists of components.", # The Description of the package containing the App 
-  author_first_name = "Jonathan", # Your First Name
-  author_last_name = "St-Onge", # Your Last Name
-  author_email = "jonathanstonge7@gmail.com", # Your Email
-  repo_url = "https://github.com/jstonge/zipfJuxtaposer" # The URL of the GitHub Repo (optional) 
+  pkg_name = "zipfJuxtaposer", 
+  pkg_title = "zipfJuxtaposer", 
+  pkg_description = "Package to compare two zipfian ranked lists of components.", 
+  author_first_name = "Jonathan", 
+  author_last_name = "St-Onge", 
+  author_email = "jonathanstonge7@gmail.com", 
+  repo_url = "https://github.com/jstonge/zipfJuxtaposer"
 )     
 
 ## Set {golem} options ----
