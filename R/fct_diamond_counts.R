@@ -39,7 +39,7 @@ diamond_counts <- function(mixedelements, alpha) {
   deltas_loss <- deltas
   deltas_gain <- deltas
 
-  deltas_loss[which(mixedelements[[1]]$ranks > mixedelements[[2]]$ranks)] = 1
+  deltas_loss[which(mixedelements[[1]]$ranks > mixedelements[[2]]$ranks)] = -1
   deltas_gain[which(mixedelements[[1]]$ranks < mixedelements[[2]]$ranks)] = -1
 
   c1 <- mixedelements[[1]]$counts
@@ -64,5 +64,6 @@ diamond_counts <- function(mixedelements, alpha) {
     counts[x1_indices[i], x2_indices[i]] <- counts[x1_indices[i], x2_indices[i]] + 1
   }
 
-  return(list(counts=data.table::data.table(counts), div_score=divergence_score, deltas=deltas))
+  return(list(counts=data.table::data.table(counts), div_score=divergence_score, 
+              deltas=deltas, max_delta_loss=max(deltas_loss)))
 }

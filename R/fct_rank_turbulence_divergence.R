@@ -52,12 +52,10 @@ rank_turbulence_divergence <- function(mixedelements, alpha) {
   
   if (alpha == Inf) {
     normalization <- sum(inv_r1[indices1]) + sum(inv_r2[indices2])
-  }
-  else if (alpha == 0) {
+  } else if (alpha == 0) {
     normalization <- sum(abs(log(inv_r1[indices1] / inv_r2_disjoint))) + 
       sum(abs(log(inv_r2[indices2] / inv_r1_disjoint)))
-  }
-  else {
+  } else {
     normalization <- (alpha+1)/alpha * sum((abs(inv_r1[indices1]^alpha - inv_r2_disjoint^alpha))^(1. / (alpha+1))) + 
     (alpha+1)/alpha * sum((abs(inv_r1_disjoint^alpha - inv_r2[indices2]^alpha))^(1. / (alpha+1)))
   }

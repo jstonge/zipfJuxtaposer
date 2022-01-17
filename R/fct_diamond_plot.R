@@ -15,7 +15,7 @@ diamond_plot <- function(mixedelements, alpha, system_names) {
   tidy_counts <- tcm$counts_long
   meta_diamond <- metadata_diamond(mixedelements)
   meta_diamond$deltas <- tcm$deltas
-
+  
   # plot settings
   dim_mat <- max(tidy_counts$y1)
   triangle1 <- data.frame(x = c(0, 0, dim_mat), y = c(0, dim_mat, dim_mat))
@@ -30,18 +30,21 @@ diamond_plot <- function(mixedelements, alpha, system_names) {
   sel_names_r <- bin_names(meta_diamond, "right", nb_bins = NB_BINS)
   sel_names_l <- bin_names(meta_diamond, "left", nb_bins = NB_BINS)
   sel_names <- rbind(sel_names_l, sel_names_r)
+  DELTAMIN_TEXT_COLOR <- 0.35
+  sel_names$deltas <- sel_names$deltas / tcm$max_delta_loss
+  sel_names$deltas <- (1 - sel_names$deltas) * (1 - DELTAMIN_TEXT_COLOR)
 
   # annotation names left and right
   anno_names_right <- geom_text(
     data = sel_names[sel_names$elem == "right", ],
-    aes(.data$x1, .data$y1, label = .data$types, alpha = .data$deltas / sum(.data$deltas)),
+    aes(.data$x1, .data$y1, label = .data$types, alpha = .data$deltas),
     nudge_x = -2.8, nudge_y = 3, angle = (-1 * rotation),
     show.legend = FALSE
   )
 
   anno_names_left <- geom_text(
     data = sel_names[sel_names$elem == "left", ],
-    aes(x = .data$x1, y = .data$y1, label = .data$types, alpha = .data$deltas / sum(.data$deltas)),
+    aes(x = .data$x1, y = .data$y1, label = .data$types, alpha = .data$deltas),
     nudge_x = 2.8, nudge_y = -3, angle = (-1 * rotation),
     show.legend = FALSE
   )

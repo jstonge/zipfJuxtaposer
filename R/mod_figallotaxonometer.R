@@ -190,12 +190,12 @@ mod_figallotaxonometer_server <- function(id) {
           width = unit(0.75, "npc"),
           height = unit(0.75, "npc")
         ))
-      }, res = 96 ) |> bindCache(data())
+      }, res = 96 ) |> bindCache(data(), as.double(input$a))
 
     output$shifterator_plot <- renderPlot({
         r$sp <- shifterator_plot(data(), as.double(input$a), input$shift, system_names())
         r$sp
-      }, res = 96 ) |> bindCache(data(), input$shift)
+      }, res = 96 ) |> bindCache(data(), as.double(input$a))
 
 
     # Saving ------------------------------------------------------------------

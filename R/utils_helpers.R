@@ -206,7 +206,8 @@ tidy_count_mixedelem <- function(mixedelements, alpha = Inf) {
   counts_t[, ("x1") := 1:nrow(counts_t)]
   counts_long <- data.table::melt(counts_t, id.vars = "x1", variable.name = "y1")
   counts_long[, y1 := as.integer(gsub("V", "", y1))]
-  return(list(counts_long=counts_long, divergence_score=dc$div_score, deltas=dc$deltas))
+  return(list(counts_long=counts_long, divergence_score=dc$div_score, 
+              deltas=dc$deltas, max_delta_loss=dc$max_delta_loss))
 }
 
 #' Max log10 of rank in mixedelements
