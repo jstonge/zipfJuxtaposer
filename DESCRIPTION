@@ -33,3 +33,5 @@ URL: https://github.com/jstonge/zipfJuxtaposer
 BugReports: https://github.com/jstonge/zipfJuxtaposer/issues
 Remotes: 
     pverspeelt/shifterator
+Depends: 
+    R (>= 4.0.0)

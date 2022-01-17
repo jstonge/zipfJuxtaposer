@@ -5,7 +5,7 @@ account: jsto
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5426192
-bundleId: 5474959
+bundleId: 5477772
 url: https://jsto.shinyapps.io/zipfJuxtaposer/
-when: 1642374023.62326
-lastSyncTime: 1642374023.62329
+when: 1642438162.12033
+lastSyncTime: 1642438162.12033
