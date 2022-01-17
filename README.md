@@ -4,6 +4,8 @@ An allotaxonometer package, this shiny allows you to compare two zipfian ranked 
 
 ![](inst/app/www/zipfJutaxposer1.png)
 
+Note that thie worshift part of the package comes from the `R` package [shifterator](https://github.com/pverspeelt/shifterator/), which is derived from the [Python package](https://github.com/ryanjgallagher/shifterator) of the same name. 
+
 ## Usage
 
 You can use this app either locally or online. Locally, you first need to install the app:
